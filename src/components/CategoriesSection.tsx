@@ -9,12 +9,12 @@ import {
   BookText 
 } from "lucide-react";
 
-// Mock data for categories
+// Realistic and accurate category info
 const categories = [
   {
     id: 1,
     name: "الاستثمار",
-    description: "دليلك للاستثمار في الأسهم والعقارات والأصول الرقمية",
+    description: "تعلم استراتيجيات الاستثمار الذكية والأساسية في الأسهم والعقارات والأصول الرقمية لزيادة رأس مالك بشكل مستدام.",
     icon: TrendingUp,
     color: "bg-blue-500",
     articles: 78
@@ -22,7 +22,7 @@ const categories = [
   {
     id: 2,
     name: "التوفير",
-    description: "استراتيجيات فعالة لتوفير المال وبناء عادات مالية صحية",
+    description: "أساليب علمية وعملية لبناء عادات الادخار وتحسين إنفاقك لتحقيق الاستقرار المالي.",
     icon: DollarSign,
     color: "bg-green-500",
     articles: 65
@@ -30,7 +30,7 @@ const categories = [
   {
     id: 3,
     name: "التقنية المالية",
-    description: "أحدث التطبيقات والخدمات التقنية لإدارة أموالك",
+    description: "أحدث الخدمات والتطبيقات الذكية التي تساعدك على إدارة أموالك بكفاءة وسهولة من خلال التطور التكنولوجي المستمر.",
     icon: Smartphone,
     color: "bg-purple-500",
     articles: 42
@@ -38,7 +38,7 @@ const categories = [
   {
     id: 4,
     name: "التخطيط المالي",
-    description: "خطط مالية للتقاعد والطوارئ وتحقيق الأهداف المالية",
+    description: "تخطيط مالي استراتيجي للتقاعد، الطوارئ، وتحقيق الخطط الطويلة والقصيرة المدى بأدوات معتمدة وفعالة.",
     icon: PieChart,
     color: "bg-orange-500",
     articles: 53
@@ -46,7 +46,7 @@ const categories = [
   {
     id: 5,
     name: "العملات الرقمية",
-    description: "كل ما تحتاج معرفته عن البيتكوين والعملات الرقمية",
+    description: "كل ما يتعلق بفهم البيتكوين والعملات الرقمية، وأساليب التداول الآمن والاستثمار في هذا المجال الحديث.",
     icon: Coins,
     color: "bg-yellow-500",
     articles: 31
@@ -54,7 +54,7 @@ const categories = [
   {
     id: 6,
     name: "المعرفة المالية",
-    description: "مفاهيم وأساسيات لفهم عالم المال والأعمال",
+    description: "مبادئ وأساسيات financiële لفهم عالم الأعمال والاستثمار بعمق ووعي أكبر.",
     icon: BookText,
     color: "bg-red-500",
     articles: 94

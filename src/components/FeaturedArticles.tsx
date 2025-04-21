@@ -1,35 +1,36 @@
+
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Button } from "./ui/button";
 
-// Mock data for featured articles
+// More authentic featured articles
 const articles = [
   {
     id: 1,
-    title: "كيف توفر ٣٠٪ من دخلك الشهري بطرق بسيطة",
-    excerpt: "تعرف على أفضل الاستراتيجيات لتوفير جزء من دخلك دون التأثير على نمط حياتك",
+    title: "طريقة فعالة لتوفير 30٪ من دخلك الشهري",
+    excerpt: "استراتيجيات عملية لتوفير المال دون التأثير على نمط حياتك العادي.",
     category: "توفير",
     date: "٢٠ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=2070&auto=format&fit=crop",
-    author: "سمير الحكيم"
+    author: "سامية حسن"
   },
   {
     id: 2,
-    title: "دليل مبسط للاستثمار في الأسهم للمبتدئين",
-    excerpt: "كل ما تحتاج معرفته لبدء رحلتك في الاستثمار بالأسهم بشكل آمن ومدروس",
+    title: "دليل الاستثمار الآمن في الأسهم للمبتدئين",
+    excerpt: "تعلم الخطوات الأولى للاستثمار بأمان وذكاء في سوق الأسهم.",
     category: "استثمار",
     date: "١٨ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
-    author: "نورا العلي"
+    author: "يوسف العتيبي"
   },
   {
     id: 3,
-    title: "التطبيقات المالية العربية: تقييم شامل لأفضل ٥ تطبيقات",
-    excerpt: "مراجعة تفصيلية لأفضل التطبيقات المالية التي تساعدك على إدارة أموالك باللغة العربية",
+    title: "أفضل 5 تطبيقات إدارة مالية للمستخدم العربي",
+    excerpt: "مراجعة شاملة للتطبيقات التي تساعدك على تنظيم وإدارة أموالك بسهولة.",
     category: "تقنية مالية",
     date: "١٥ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=2074&auto=format&fit=crop",
-    author: "عمر الفاروق"
+    author: "ليلى محمد"
   },
 ];
 

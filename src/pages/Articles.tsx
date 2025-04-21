@@ -5,61 +5,79 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-// Extended mock data for articles page
+// Extended and more authentic articles data
 const allArticles = [
   {
     id: 1,
-    title: "كيف توفر ٣٠٪ من دخلك الشهري بطرق بسيطة",
-    excerpt: "تعرف على أفضل الاستراتيجيات لتوفير جزء من دخلك دون التأثير على نمط حياتك",
+    title: "طريقة فعالة لتوفير 30٪ من دخلك الشهري",
+    excerpt: "استراتيجيات عملية لتوفير المال دون المساس بجودة حياتك أو نمط الإنفاق المعتاد.",
     category: "توفير",
     date: "٢٠ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=2070&auto=format&fit=crop",
-    author: "سمير الحكيم"
+    author: "سامية حسن"
   },
   {
     id: 2,
-    title: "دليل مبسط للاستثمار في الأسهم للمبتدئين",
-    excerpt: "كل ما تحتاج معرفته لبدء رحلتك في الاستثمار بالأسهم بشكل آمن ومدروس",
+    title: "دليل الاستثمار الآمن في الأسهم للمبتدئين",
+    excerpt: "أساسيات الاستثمار والفرص التي يجب أن تعرفها قبل البدء في سوق الأسهم.",
     category: "استثمار",
     date: "١٨ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
-    author: "نورا العلي"
+    author: "يوسف العتيبي"
   },
   {
     id: 3,
-    title: "التطبيقات المالية العربية: تقييم شامل لأفضل ٥ تطبيقات",
-    excerpt: "مراجعة تفصيلية لأفضل التطبيقات المالية التي تساعدك على إدارة أموالك باللغة العربية",
+    title: "أفضل 5 تطبيقات مالية تساعدك على التنظيم المالي",
+    excerpt: "مراجعة شاملة لأفضل التطبيقات التي تدعم المستخدم العربي وتساعد على إدارة الأموال بكفاءة.",
     category: "تقنية مالية",
     date: "١٥ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=2074&auto=format&fit=crop",
-    author: "عمر الفاروق"
+    author: "ليلى محمد"
   },
   {
     id: 4,
-    title: "مقدمة في العملات الرقمية: المخاطر والفرص",
-    excerpt: "تعرف على أساسيات العملات الرقمية وكيفية التعامل معها بحذر واستثمار فيها بذكاء",
+    title: "أساسيات العملات الرقمية: بين المخاطر والفرص",
+    excerpt: "فهم العملات الرقمية وكيف تحمي استثماراتك في عالم متغير ومتقلب.",
     category: "العملات الرقمية",
     date: "١٢ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1518544086798-4949f0a9a38e?q=80&w=2070&auto=format&fit=crop",
-    author: "أحمد المصري"
+    author: "طارق عبد الله"
   },
   {
     id: 5,
-    title: "كيف تحقق الاستقلال المالي قبل سن ٤٠",
-    excerpt: "استراتيجيات عملية لبناء الثروة وتحقيق الحرية المالية في سن مبكرة نسبياً",
+    title: "كيف تحقق الاستقلال المالي قبل سن الأربعين",
+    excerpt: "خطوات عملية لبناء الثروة وتحقيق الحرية المالية مع التخطيط السليم والادخار المنتظم.",
     category: "تخطيط مالي",
     date: "١٠ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2074&auto=format&fit=crop",
-    author: "رنا العبدالله"
+    author: "سارة الحربي"
   },
   {
     id: 6,
-    title: "التخطيط المالي للزواج: كيف تبدأ حياتك الزوجية بدون ديون",
-    excerpt: "دليل شامل للتخطيط المالي للزواج وتجنب الديون مع بداية الحياة الزوجية",
+    title: "التخطيط المالي للزواج: استقرار مالي مشترك",
+    excerpt: "إستراتيجيات لتجنب الديون وبدء حياة الزوجية بأمان مالي ووعي مشترك.",
     category: "تخطيط مالي",
     date: "٥ أبريل ٢٠٢٥",
     imageUrl: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop",
-    author: "محمد الفهد"
+    author: "فهد الكيلاني"
+  },
+  {
+    id: 7,
+    title: "أفضل الطرق لادخار المال في ظل تغيرات السوق",
+    excerpt: "تعرف على طرق ادخار ذكية تناسب ظروف الاقتصاد المتغيرة.",
+    category: "توفير",
+    date: "٨ أبريل ٢٠٢٥",
+    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2070&auto=format&fit=crop",
+    author: "ندى العبدالله"
+  },
+  {
+    id: 8,
+    title: "فهم أساسيات صناديق الاستثمار المشتركة",
+    excerpt: "كيف تساعدك صناديق الاستثمار في تنويع محفظتك وتقليل المخاطر.",
+    category: "استثمار",
+    date: "٤ أبريل ٢٠٢٥",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop",
+    author: "خالد النجدي"
   },
 ];
 
