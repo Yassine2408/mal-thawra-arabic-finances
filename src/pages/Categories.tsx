@@ -105,6 +105,12 @@ const categories = [
   }
 ];
 
+const globalIntro = `
+في مال-الثروة، قمنا بتقسيم المحتوى إلى تصنيفات واضحة بحيث تجد كل ما تبحث عنه بسهولة. اختر التصنيف الذي يناسب اهتماماتك واستكشف مقالات وشروحات وأدوات فريدة أعددناها خصيصاً لجمهورنا العربي.
+
+كل تصنيف يحوي مقالات متجددة وأهم النصائح العملية بالإضافة لمقال مميز يُرشح للقراءة أولاً!
+`;
+
 const Categories = () => {
   return (
     <div className="min-h-screen bg-white font-cairo">
@@ -121,7 +127,12 @@ const Categories = () => {
             </p>
           </div>
         </div>
-
+        {/* Intro */}
+        <div className="container mx-auto max-w-4xl px-4 md:px-6">
+          <div className="my-12 text-center text-lg text-gray-700 leading-relaxed">
+            {globalIntro}
+          </div>
+        </div>
         {/* Categories List */}
         <section className="py-16">
           <div className="container mx-auto px-4 md:px-6">
@@ -134,25 +145,28 @@ const Categories = () => {
                       <div className={`w-14 h-14 ${category.color} rounded-lg text-white flex items-center justify-center mb-4`}>
                         <category.icon size={28} />
                       </div>
-                      
                       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{category.name}</h2>
-                      
                       <p className="text-gray-600 mb-6">{category.longDescription}</p>
-                      
                       <div className="mt-auto">
                         <div className="mb-4 text-sm text-gray-500">
                           <span className="font-semibold text-gray-900">{category.articles}</span> مقال في هذا التصنيف
                         </div>
-                        
-                        <Link 
-                          to={`/category/${category.id}`}
-                          className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md transition-colors"
-                        >
-                          تصفح المقالات
-                        </Link>
+                        <div className="flex gap-4 flex-wrap">
+                          <Link 
+                            to={`/category/${category.id}`}
+                            className="inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md transition-colors"
+                          >
+                            تصفح المقالات
+                          </Link>
+                          <Link 
+                            to={`/article/${category.featuredArticle.id}`}
+                            className="inline-flex items-center bg-teal-100 hover:bg-teal-200 text-teal-800 px-4 py-2 rounded-md transition-colors border border-teal-200"
+                          >
+                            قراءة المقال المميز
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                    
                     {/* Featured Article */}
                     <div className="lg:col-span-3 bg-gray-50">
                       <div className="h-full relative overflow-hidden">
@@ -161,21 +175,17 @@ const Categories = () => {
                           alt={category.featuredArticle.title}
                           className="w-full h-full object-cover brightness-[0.85] lg:min-h-[320px]"
                         />
-                        
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex flex-col justify-end p-6 md:p-8">
                           <div className="max-w-xl">
                             <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white mb-3">
                               مقال مميز
                             </span>
-                            
                             <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                               {category.featuredArticle.title}
                             </h3>
-                            
                             <p className="text-gray-200 mb-4">
                               {category.featuredArticle.excerpt}
                             </p>
-                            
                             <Link 
                               to={`/article/${category.featuredArticle.id}`}
                               className="inline-flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-md transition-colors"
