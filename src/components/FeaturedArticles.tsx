@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Button } from "./ui/button";
@@ -44,7 +43,6 @@ export default function FeaturedArticles() {
             تصفح أحدث المقالات في عالم المال والاستثمار والتقنية المالية بلغة عربية مبسطة
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article) => (
             <Card key={article.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg">
@@ -82,11 +80,12 @@ export default function FeaturedArticles() {
             </Card>
           ))}
         </div>
-
         <div className="mt-12 text-center">
-          <Button className="bg-teal-600 hover:bg-teal-700 text-white">
-            عرض جميع المقالات
-          </Button>
+          <Link to="/articles">
+            <Button className="bg-teal-600 hover:bg-teal-700 text-white">
+              عرض جميع المقالات
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

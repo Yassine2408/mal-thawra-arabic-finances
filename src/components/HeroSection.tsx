@@ -1,5 +1,6 @@
 
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -17,12 +18,16 @@ export default function HeroSection() {
               نساعدك على فهم وإدارة أموالك وبناء ثروتك من خلال مقالات ونصائح وأدوات مالية بلغة عربية واضحة
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="bg-white text-teal-600 hover:bg-teal-50">
-                استكشف مقالاتنا
-              </Button>
-              <Button variant="outline" className="text-white border-white hover:bg-white/10">
-                أدوات مالية مجانية
-              </Button>
+              <Link to="/articles">
+                <Button className="bg-white text-teal-600 hover:bg-teal-50">
+                  استكشف مقالاتنا
+                </Button>
+              </Link>
+              <Link to="/tools">
+                <Button variant="outline" className="text-white border-white hover:bg-white/10">
+                  أدوات مالية مجانية
+                </Button>
+              </Link>
             </div>
           </div>
           
@@ -35,9 +40,11 @@ export default function HeroSection() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">حاسبة الاستثمار</h3>
                 <p className="text-gray-600 mb-4">احسب عائد استثمارك والمكاسب المحتملة</p>
-                <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50">
-                  ابدأ الآن
-                </Button>
+                <Link to="/tools">
+                  <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50">
+                    ابدأ الآن
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

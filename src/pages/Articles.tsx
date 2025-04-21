@@ -124,18 +124,25 @@ const Articles = () => {
             {/* Pagination */}
             <div className="flex justify-center mt-12">
               <nav className="flex items-center gap-2">
+                {/* Use Links for pagination for basic navigation */}
                 <Button variant="outline" disabled className="text-gray-400">
                   السابق
                 </Button>
-                <Button variant="outline" className="bg-teal-50 text-teal-600 border-teal-200">
-                  ١
-                </Button>
-                <Button variant="outline">
-                  ٢
-                </Button>
-                <Button variant="outline">
-                  ٣
-                </Button>
+                <Link to="/articles?page=1">
+                  <Button variant="outline" className="bg-teal-50 text-teal-600 border-teal-200">
+                    ١
+                  </Button>
+                </Link>
+                <Link to="/articles?page=2">
+                  <Button variant="outline">
+                    ٢
+                  </Button>
+                </Link>
+                <Link to="/articles?page=3">
+                  <Button variant="outline">
+                    ٣
+                  </Button>
+                </Link>
                 <Button variant="outline">
                   التالي
                 </Button>
