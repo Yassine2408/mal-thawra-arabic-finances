@@ -1,6 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
-import { useImageGeneration } from '../hooks/useImageGeneration';
+import React from 'react';
 
 interface ImageGeneratorAutoProps {
   prompt: string;
@@ -9,36 +8,14 @@ interface ImageGeneratorAutoProps {
 }
 
 export const ImageGeneratorAuto: React.FC<ImageGeneratorAutoProps> = ({ 
-  prompt, 
   defaultImage,
   onImageGenerated 
 }) => {
-  const { generateImage, isLoading } = useImageGeneration();
-  const [hasAttempted, setHasAttempted] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
+  // Use the defaultImage immediately and don't generate anything
+  React.useEffect(() => {
+    onImageGenerated(defaultImage);
+  }, [defaultImage, onImageGenerated]);
 
-  useEffect(() => {
-    const generateInitialImage = async () => {
-      if (!hasAttempted && !isComplete) {
-        try {
-          setHasAttempted(true);
-          const result = await generateImage({ positivePrompt: prompt });
-          onImageGenerated(result.imageURL);
-          setIsComplete(true);
-        } catch (err) {
-          console.error('Failed to generate image, using default:', err);
-          onImageGenerated(defaultImage);
-          setIsComplete(true);
-        }
-      }
-    };
-
-    generateInitialImage();
-  }, [prompt, defaultImage, onImageGenerated, hasAttempted, isComplete]);
-
-  return isLoading ? (
-    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-      <div className="text-white text-sm">جاري توليد الصورة...</div>
-    </div>
-  ) : null;
+  // Return null as we're not showing any UI
+  return null;
 };

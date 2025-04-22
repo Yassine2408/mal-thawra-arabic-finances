@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -91,13 +91,15 @@ const Articles = () => {
   const [articles, setArticles] = React.useState(allArticles);
 
   const handleImageGenerated = (articleId: number, newImageUrl: string) => {
-    setArticles(prevArticles => 
-      prevArticles.map(article => 
-        article.id === articleId 
-          ? { ...article, imageUrl: newImageUrl }
-          : article
-      )
-    );
+    if (newImageUrl && newImageUrl !== articles.find(a => a.id === articleId)?.imageUrl) {
+      setArticles(prevArticles => 
+        prevArticles.map(article => 
+          article.id === articleId 
+            ? { ...article, imageUrl: newImageUrl }
+            : article
+        )
+      );
+    }
   };
 
   return (
