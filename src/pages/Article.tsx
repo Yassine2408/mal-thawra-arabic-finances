@@ -1,3 +1,5 @@
+
+import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useParams } from "react-router-dom";
@@ -112,7 +114,7 @@ function getRelatedArticles(currIdArr) {
 export default function Article() {
   const { id } = useParams();
   const article = findArticleById(id);
-  const [currentImage, setCurrentImage] = React.useState('');
+  const [currentImage, setCurrentImage] = useState('');
 
   if (!article) {
     return (
