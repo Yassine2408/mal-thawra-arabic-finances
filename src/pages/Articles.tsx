@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { ImageGenerator } from '@/components/ImageGenerator';
+import { ImageGeneratorAuto } from '@/components/ImageGeneratorAuto';
 
 const allArticles = [
   {
@@ -128,12 +128,11 @@ const Articles = () => {
                           alt={article.title} 
                           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
-                        <div className="absolute bottom-2 right-2">
-                          <ImageGenerator
-                            prompt={article.title}
-                            onImageGenerated={(url) => handleImageGenerated(article.id, url)}
-                          />
-                        </div>
+                        <ImageGeneratorAuto
+                          prompt={article.title}
+                          defaultImage={article.imageUrl}
+                          onImageGenerated={(url) => handleImageGenerated(article.id, url)}
+                        />
                       </div>
                       <CardHeader className="pb-2">
                         <div className="flex justify-between items-center mb-2">

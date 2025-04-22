@@ -1,9 +1,8 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useParams } from "react-router-dom";
+import { ImageGeneratorAuto } from '@/components/ImageGeneratorAuto';
 
-// Verified real Arab financial & business figures
 const articles = [
   {
     id: 1,
@@ -113,6 +112,7 @@ function getRelatedArticles(currIdArr) {
 export default function Article() {
   const { id } = useParams();
   const article = findArticleById(id);
+  const [currentImage, setCurrentImage] = React.useState('');
 
   if (!article) {
     return (
@@ -129,9 +129,17 @@ export default function Article() {
     <div className="min-h-screen bg-white font-cairo">
       <Navbar />
       <main className="container mx-auto px-4 md:px-6 py-12 max-w-3xl">
-        {/* Cover Image */}
-        <div className="mb-8 rounded-xl overflow-hidden shadow-sm">
-          <img src={article.imageUrl} alt={article.title} className="w-full h-72 object-cover" />
+        <div className="mb-8 rounded-xl overflow-hidden shadow-sm relative">
+          <img 
+            src={currentImage || article.imageUrl} 
+            alt={article.title} 
+            className="w-full h-72 object-cover" 
+          />
+          <ImageGeneratorAuto
+            prompt={article.title}
+            defaultImage={article.imageUrl}
+            onImageGenerated={setCurrentImage}
+          />
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
         <div className="mb-6 text-sm text-gray-500 flex items-center gap-2">
@@ -139,11 +147,9 @@ export default function Article() {
           <span>•</span>
           <span>{article.date}</span>
         </div>
-        {/* Article Content */}
         <div className="prose prose-lg max-w-2xl mx-auto text-gray-800 mb-10" dir="rtl" style={{whiteSpace: 'pre-line'}}>
           {article.content}
         </div>
-        {/* About Author */}
         <div className="flex items-center bg-teal-50 rounded-lg p-6 mb-10">
           <img src={article.author.avatar} alt={article.author.name} className="w-16 h-16 rounded-full object-cover ml-4 border-2 border-teal-200" />
           <div>
@@ -151,7 +157,6 @@ export default function Article() {
             <div className="text-sm text-gray-600">{article.author.bio}</div>
           </div>
         </div>
-        {/* Related Articles */}
         {relatedArticles.length > 0 && (
           <div className="mb-12">
             <h2 className="text-xl font-bold mb-4">مقالات ذات صلة</h2>
