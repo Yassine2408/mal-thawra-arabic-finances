@@ -1,11 +1,11 @@
-
+import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { ImageGenerator } from '@/components/ImageGenerator';
 
-// Real Arab finance/business figures
 const allArticles = [
   {
     id: 1,
@@ -88,11 +88,22 @@ const readingTips = [
 ];
 
 const Articles = () => {
+  const [articles, setArticles] = React.useState(allArticles);
+
+  const handleImageGenerated = (articleId: number, newImageUrl: string) => {
+    setArticles(prevArticles => 
+      prevArticles.map(article => 
+        article.id === articleId 
+          ? { ...article, imageUrl: newImageUrl }
+          : article
+      )
+    );
+  };
+
   return (
     <div className="min-h-screen bg-white font-cairo">
       <Navbar />
       <main>
-        {/* Header */}
         <div className="bg-teal-600 py-16">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -106,19 +117,23 @@ const Articles = () => {
 
         <section className="py-16">
           <div className="container mx-auto px-4 md:px-6">
-            {/* Reading Tips Sidebar (for large screens) */}
             <div className="flex flex-col lg:flex-row gap-10">
               <div className="lg:w-3/4">
-                {/* Articles Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {allArticles.map((article) => (
+                  {articles.map((article) => (
                     <Card key={article.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg">
-                      <div className="aspect-video overflow-hidden">
+                      <div className="aspect-video overflow-hidden relative">
                         <img 
                           src={article.imageUrl} 
                           alt={article.title} 
                           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
+                        <div className="absolute bottom-2 right-2">
+                          <ImageGenerator
+                            prompt={article.title}
+                            onImageGenerated={(url) => handleImageGenerated(article.id, url)}
+                          />
+                        </div>
                       </div>
                       <CardHeader className="pb-2">
                         <div className="flex justify-between items-center mb-2">
@@ -147,10 +162,8 @@ const Articles = () => {
                     </Card>
                   ))}
                 </div>
-                {/* Pagination */}
                 <div className="flex justify-center mt-12">
                   <nav className="flex items-center gap-2">
-                    {/* Use Links for pagination/navigation */}
                     <Button variant="outline" disabled className="text-gray-400">
                       السابق
                     </Button>
@@ -175,7 +188,6 @@ const Articles = () => {
                   </nav>
                 </div>
               </div>
-              {/* Sidebar with Reading Tips */}
               <div className="lg:w-1/4 mb-10 lg:mb-0 bg-teal-50 rounded-lg p-6 shadow-sm h-fit">
                 <h3 className="font-bold text-teal-700 mb-3">نصائح للقراءة المثمرة 📚</h3>
                 <ul className="space-y-2 text-gray-700 text-sm">
@@ -197,5 +209,3 @@ const Articles = () => {
 };
 
 export default Articles;
-
-// All author names/info now reflect real, verifiable personalities
